@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="colorAccent">#FF4081</color>
+
+    <color name="fuel_town">#576574</color>
+    <color name="double_dragon_skin">#FF9F43</color>
 </resources>

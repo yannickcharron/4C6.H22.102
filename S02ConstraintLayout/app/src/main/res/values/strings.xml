@@ -5,13 +5,17 @@
     <string name="lorem" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
 
     <string name="exercice_cube" translatable="false">Cube</string>
-    <string name="exercice_energy" translatable="false">Energy</string>
+    <string name="exercice_energy">Energy</string>
     <string name="exercice_shield" translatable="false">Shield</string>
     <string name="start" translatable="false">Start</string>
     <string name="training" translatable="false">Training</string>
     <string name="life" translatable="false">Life</string>
     <string name="revolution" translatable="false">Revolution</string>
-    <string name="level" translatable="false">Level %d</string>
     <string name="low_energy" translatable="false">Low Energy</string>
     <string name="recharge" translatable="false">Recharge</string>
+
+
+    <string name="level">Level %d</string>
+    <string name="low_resources">Low Enery or Life</string>
+    <string name="msgContinue">Continue</string>
 </resources>

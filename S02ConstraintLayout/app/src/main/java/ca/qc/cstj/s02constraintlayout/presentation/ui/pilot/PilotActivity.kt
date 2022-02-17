@@ -19,8 +19,6 @@ class PilotActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPilotBinding
     private val viewModel: PilotViewModel by viewModels()
 
-    //private val _pilot = Pilot("Bee Zoon",10)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //Transformer et charge le xml en mémoire dans le binding
@@ -39,9 +37,22 @@ class PilotActivity : AppCompatActivity() {
             }
         }
 
-        //refreshUI()
-
         binding.btnStart?.setOnClickListener {
+            if(!viewModel.fly(binding.sldRevolution.value.toInt(), binding.swtTraining.isChecked)) {
+                Snackbar.make(binding.root, getString(R.string.low_resources), Snackbar.LENGTH_INDEFINITE)
+                    .setAction(getString(R.string.msgContinue)) {
+                        viewModel.recharge()
+                    }
+                    .show()
+            }
+
+        }
+    }
+
+
+
+}
+
 //            if(_pilot.canFly()) {
 //                binding.btnStart?.isEnabled = false
 //                _pilot.fly(binding.sldRevolution.value.toInt(), binding.swtTraining.isChecked)
@@ -82,8 +93,6 @@ class PilotActivity : AppCompatActivity() {
 //                    .show()
 //            }
 //
-        }
-    }
 
 //    private fun refreshUI() {
 //        with(binding) {
@@ -94,5 +103,3 @@ class PilotActivity : AppCompatActivity() {
 //            txvEnergy.text = _pilot.energy.toString()
 //            txvCube.text = _pilot.cube.toString()
 //        }
-
-}

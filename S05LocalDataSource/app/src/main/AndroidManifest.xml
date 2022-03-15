@@ -11,15 +11,15 @@
         android:theme="@style/Theme.S05LocalDataSource">
         <activity
             android:name=".presentation.ui.splash.SplashActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".presentation.ui.main.MainActivity"
+            android:exported="false">
         </activity>
     </application>
 

@@ -1,5 +1,7 @@
 package ca.qc.cstj.s05localdatasource.presentation.ui.main
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -90,5 +92,11 @@ class MainActivity : AppCompatActivity() {
             arguments = args
         }.show(supportFragmentManager, ContactDialogFragment.CONTACT_DIALOG_TAG)
 
+    }
+
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, MainActivity::class.java)
+        }
     }
 }

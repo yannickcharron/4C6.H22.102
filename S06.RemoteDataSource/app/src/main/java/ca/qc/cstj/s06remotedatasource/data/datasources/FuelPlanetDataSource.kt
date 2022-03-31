@@ -25,8 +25,9 @@ class FuelPlanetDataSource {
                     for(i in 0 until planetsJson.length()) {
                         planets.add(deserializePlanet(planetsJson.getJSONObject(i)))
                     }
-                    planets
+                    //planets
 
+                    return@withContext planets
                 }
                 // Code dans les familles 400 ou 500
                 is Result.Failure -> {

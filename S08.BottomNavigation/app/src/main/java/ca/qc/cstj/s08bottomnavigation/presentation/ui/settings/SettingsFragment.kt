@@ -16,6 +16,16 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     //Dans l'activité la majorité du code est dans onCreated() => onViewCreated()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // viewLifecycleOwner = this dans une activity
+        viewModel.count.observe(viewLifecycleOwner) {
+            binding.txvCount.text = it.toString()
+        }
+
+        binding.btnAdd.setOnClickListener {
+            viewModel.add()
+        }
+
     }
 
 }

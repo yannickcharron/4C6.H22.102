@@ -31,6 +31,7 @@ class MeteoDataSource {
                        meteoDTO.main.temp,
                        meteoDTO.weather[0].main,
                        meteoDTO.dt,
+                       meteoDTO.timezone,
                        meteoDTO.coord.lat,
                        meteoDTO.coord.lon)
                }

@@ -6,6 +6,7 @@ data class Meteo(
     val temperature: Double,
     val weather: String,
     val timestamp: Int,
+    val timeZone: Int,
     val latitude:Double,
     val longitude: Double
 )

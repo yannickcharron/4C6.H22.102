@@ -9,7 +9,11 @@
         android:id="@+id/navigation_search"
         android:name="ca.qc.cstj.s08bottomnavigation.presentation.ui.search.SearchFragment"
         android:label="@string/title_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_mapsActivity"
+            app:destination="@id/mapsActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_favorites"
@@ -22,4 +26,13 @@
         android:name="ca.qc.cstj.s08bottomnavigation.presentation.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
+    <activity
+        android:id="@+id/mapsActivity"
+        android:name="ca.qc.cstj.s08bottomnavigation.presentation.ui.map.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" >
+        <argument
+            android:name="position"
+            app:argType="com.google.android.gms.maps.model.LatLng" />
+    </activity>
 </navigation>

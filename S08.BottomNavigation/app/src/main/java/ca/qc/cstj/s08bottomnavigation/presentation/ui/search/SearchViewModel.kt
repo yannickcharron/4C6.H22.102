@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import ca.qc.cstj.s08bottomnavigation.core.LoadingResource
 import ca.qc.cstj.s08bottomnavigation.data.repositories.MeteoRepository
 import ca.qc.cstj.s08bottomnavigation.domain.models.Meteo
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -17,8 +19,12 @@ class SearchViewModel : ViewModel() {
     private val _meteo = MutableLiveData<LoadingResource<Meteo>>()
     val meteo : LiveData<LoadingResource<Meteo>> get() = _meteo
 
+    private var searchJob: Job? = null
+
     fun search(cityName: String) {
-        viewModelScope.launch {
+        searchJob?.cancel()
+
+        searchJob = viewModelScope.launch {
             meteoRepository.retrieve(cityName).collect {
                 _meteo.value = it
             }

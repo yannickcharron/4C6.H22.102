@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import ca.qc.cstj.s08bottomnavigation.R
 import ca.qc.cstj.s08bottomnavigation.core.Constants
 import ca.qc.cstj.s08bottomnavigation.core.LoadingResource
@@ -17,6 +18,7 @@ import ca.qc.cstj.s08bottomnavigation.core.text
 import ca.qc.cstj.s08bottomnavigation.databinding.FragmentSearchBinding
 import ca.qc.cstj.s08bottomnavigation.domain.models.Meteo
 import com.bumptech.glide.Glide
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.snackbar.Snackbar
 import java.time.Instant
 import java.time.ZoneId
@@ -29,6 +31,8 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private val viewModel: SearchViewModel by viewModels()
 
     private lateinit var ctlMainActivity : ConstraintLayout
+
+    private var position: LatLng? = null
 
     //Dans l'activité la majorité du code est dans onCreated() => onViewCreated()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -64,10 +68,19 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         binding.btnSearch.setOnClickListener {
             viewModel.search(binding.tilSearch.text)
         }
+
+        binding.fabLocation.setOnClickListener {
+            val action = SearchFragmentDirections
+                .actionNavigationSearchToMapsActivity(position!!)
+            findNavController().navigate(action)
+        }
+
     }
 
     private fun showMeteo(meteo: Meteo) {
         //TODO: Affichage de chacune des information de la metéo
+
+        position = LatLng(meteo.latitude, meteo.longitude)
 
         with(binding) {
             txvCity.text = meteo.city

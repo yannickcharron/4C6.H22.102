@@ -34,7 +34,18 @@ class PlanetDataSource {
     }
 
     suspend fun retrieve(href: String) : Planet {
-        TODO()
+        return withContext(Dispatchers.IO) {
+            val (_, _, result) = href.httpGet().responseJson()
+            when(result) {
+                is Result.Success -> {
+                    return@withContext json.decodeFromString<Planet>(result.value.content)
+                }
+                is Result.Failure -> {
+                    throw result.error.exception
+                }
+            }
+        }
+
     }
 
 }

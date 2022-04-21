@@ -9,7 +9,8 @@ import com.bumptech.glide.Glide
 
 class PlanetRecyclerViewAdapter(
     var planets: List<Planet> = listOf(),
-    private val onPlanetClick: (Planet) -> Unit) : RecyclerView.Adapter<PlanetRecyclerViewAdapter.ViewHolder>() {
+    private val onPlanetClick: (Planet) -> Unit)
+: RecyclerView.Adapter<PlanetRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanetRecyclerViewAdapter.ViewHolder {
         return ViewHolder(ItemPlanetBinding.inflate(LayoutInflater.from(parent.context), parent, false))

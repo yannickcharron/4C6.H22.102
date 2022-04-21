@@ -9,7 +9,11 @@
         android:id="@+id/nav_list_planet"
         android:name="ca.qc.cstj.s09navigationdrawer.presentation.ui.planet.PlanetListFragment"
         android:label="@string/menu_planets"
-        tools:layout="@layout/fragment_list_planets" />
+        tools:layout="@layout/fragment_list_planets" >
+        <action
+            android:id="@+id/action_nav_list_planet_to_nav_planet"
+            app:destination="@id/nav_planet" />
+    </fragment>
     <fragment
         android:id="@+id/nav_elements"
         android:name="ca.qc.cstj.s09navigationdrawer.presentation.ui.element.ElementsFragment"
@@ -20,5 +24,14 @@
         android:name="ca.qc.cstj.s09navigationdrawer.presentation.ui.trader.TraderFragment"
         android:label="@string/menu_trader"
         tools:layout="@layout/fragment_trader" />
+    <fragment
+        android:id="@+id/nav_planet"
+        android:name="ca.qc.cstj.s09navigationdrawer.presentation.ui.planet.PlanetFragment"
+        android:label="@string/planet"
+        tools:layout="@layout/fragment_planet">
+        <argument
+            android:name="href"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

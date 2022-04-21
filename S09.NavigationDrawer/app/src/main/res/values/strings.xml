@@ -27,4 +27,5 @@
     <string name="completed">Completed</string>
     <string name="start">Start</string>
     <string name="write_to_nfc">Write to NFC</string>
+    <string name="planet">Planet</string>
 </resources>

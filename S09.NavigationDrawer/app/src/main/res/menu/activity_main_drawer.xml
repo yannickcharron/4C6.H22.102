@@ -20,6 +20,7 @@
     <group>
         <item
             android:id="@+id/nav_qr"
+            android:icon="@drawable/ic_baseline_qr_code_scanner_24"
             android:title="@string/menu_qr" />
     </group>
 
